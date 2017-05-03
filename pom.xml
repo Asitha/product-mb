@@ -41,13 +41,6 @@
         </license>
     </licenses>
 
-    <scm>
-        <url>https://github.com/wso2/product-mb.git</url>
-        <developerConnection>scm:git:https://github.com/wso2/product-mb.git</developerConnection>
-        <connection>scm:git:https://github.com/wso2/product-mb.git</connection>
-        <tag>v3.2.0-RC2</tag>
-    </scm>
-
     <modules>
         <module>modules/styles</module>
         <module>modules/features</module>
@@ -378,18 +371,6 @@
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-release-plugin</artifactId>
-                        <configuration>
-                            <preparationGoals>clean install</preparationGoals>
-                            <autoVersionSubmodules>true</autoVersionSubmodules>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-deploy-plugin</artifactId>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
                         <version>1.0-alpha-3</version>
                         <executions>
@@ -430,7 +411,6 @@
     </mailingLists>
 
     <properties>
-        <project.scm.id>wso2-scm-server</project.scm.id>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jline.version>1.0</jline.version>
         <log4j.version>1.2.13</log4j.version>
