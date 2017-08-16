@@ -60,7 +60,7 @@ public class EI737DTXOnePhaseCommitTestCase extends MBIntegrationBaseTest {
      */
     @Test(groups = { "wso2.mb", "dtx" })
     public void onePhaseCommitMessageConsumptionTest() throws Exception {
-        String queueName = "CommitTestCasePerformClientQueueAcknowledgeTestCase";
+        String queueName = "DtxOnePhaseCommitMessageConsumptionTest";
 
         InitialContext initialContext = JMSClientHelper
                 .createInitialContextBuilder("admin", "admin", "localhost", getAMQPPort()).withQueue(queueName).build();
@@ -90,7 +90,7 @@ public class EI737DTXOnePhaseCommitTestCase extends MBIntegrationBaseTest {
         Xid xid = JMSClientHelper.getNewXid();
 
         xaResource.start(xid, XAResource.TMNOFLAGS);
-        Message receivedMessage = xaConsumer.receive(5000);
+        Message receivedMessage = xaConsumer.receive(10000);
         xaResource.end(xid, XAResource.TMSUCCESS);
 
         Assert.assertNotNull(receivedMessage, "No message received");
@@ -104,9 +104,9 @@ public class EI737DTXOnePhaseCommitTestCase extends MBIntegrationBaseTest {
         MessageConsumer messageConsumer = queueSession.createConsumer(xaTestQueue);
 
         // wait 5 seconds
-        Message receivedMessageAfterOnephaseCommit = messageConsumer.receive(5000);
+        Message receivedMessageAfterOnephaseCommit = messageConsumer.receive(10000);
         Assert.assertNull(receivedMessageAfterOnephaseCommit,
-                "Message received. One phase commit has not might have failed");
+                "Message received. One phase commit might have failed");
 
         queueConnection.close();
     }
@@ -119,7 +119,7 @@ public class EI737DTXOnePhaseCommitTestCase extends MBIntegrationBaseTest {
      */
     @Test(groups = { "wso2.mb", "dtx" })
     public void performClientQueuePublishTestCase() throws Exception {
-        String queueName = "CommitTestCasePerformClientQueuePublishTestCase";
+        String queueName = "DtxOnePhaseCommitMessagePublishingTest";
 
         InitialContext initialContext = JMSClientHelper
                 .createInitialContextBuilder("admin", "admin", "localhost", getAMQPPort()).withQueue(queueName).build();
@@ -158,7 +158,7 @@ public class EI737DTXOnePhaseCommitTestCase extends MBIntegrationBaseTest {
         MessageConsumer messageConsumer = queueSession.createConsumer(xaTestQueue);
 
         // wait 5 seconds
-        Message receive = messageConsumer.receive(5000);
+        Message receive = messageConsumer.receive(10000);
         Assert.assertNotNull(receive, "Message was not received. One-phase commit might have failed");
 
         queueConnection.close();
