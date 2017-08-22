@@ -37,7 +37,7 @@ public class JMSClientHelper {
 
     final String QUEUE_NAME = "testQueue";
     final String ANDES_ICF  = "org.wso2.andes.jndi.PropertiesFileInitialContextFactory";
-    final String CF_NAME_PREFIX = "connectionfactory.";
+    final String CF_NAME_PREFIX = "xaconnectionfactory.";
     final String CF_NAME = "andesConnectionfactory";
 
     public static AtomicLong GLOBAL_ID_GENERATOR =  new AtomicLong();
