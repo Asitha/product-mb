@@ -79,7 +79,7 @@ public class EI737DTXOnePhaseCommitTestCase extends MBIntegrationBaseTest {
 
         // Publish to queue and commit in one-phase
         XAConnectionFactory connectionFactory = (XAConnectionFactory) initialContext
-                .lookup(JMSClientHelper.QUEUE_CONNECTION_FACTORY);
+                .lookup(JMSClientHelper.QUEUE_XA_CONNECTION_FACTORY);
         XAConnection xaConnection = connectionFactory.createXAConnection();
         xaConnection.start();
         XASession xaSession = xaConnection.createXASession();
@@ -126,7 +126,7 @@ public class EI737DTXOnePhaseCommitTestCase extends MBIntegrationBaseTest {
 
         // Publish to queue and commit in one-phase
         XAConnectionFactory connectionFactory = (XAConnectionFactory) initialContext
-                .lookup(JMSClientHelper.QUEUE_CONNECTION_FACTORY);
+                .lookup(JMSClientHelper.QUEUE_XA_CONNECTION_FACTORY);
         XAConnection xaConnection = connectionFactory.createXAConnection();
         xaConnection.start();
         XASession xaSession = xaConnection.createXASession();
