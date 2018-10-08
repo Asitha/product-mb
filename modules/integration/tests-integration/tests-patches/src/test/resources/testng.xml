@@ -25,6 +25,7 @@
     <test name="tests-other" preserve-order="true" parallel="false">
         <classes>
             <class name="org.wso2.mb.integration.tests.amqp.functional.dtx.EI737DTXOnePhaseCommitTestCase"/>
+            <class name="org.wso2.mb.integration.tests.amqp.functional.EI2717PublishPermissionTestCase" />
         </classes>
     </test>
 </suite>

@@ -58,7 +58,7 @@ public class EI737DTXOnePhaseCommitTestCase extends MBIntegrationBaseTest {
      * 2. Using a distributed transacted session receive the message and commit in one-phase
      * 3. Subscribe again using a normal session and verify that a message is not received
      */
-    @Test(groups = { "wso2.mb", "dtx" })
+    @Test(groups = { "wso2.mb", "dtx", "patches" })
     public void onePhaseCommitMessageConsumptionTest() throws Exception {
         String queueName = "DtxOnePhaseCommitMessageConsumptionTest";
 
